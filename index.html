@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Psixoloji Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ffe6e6, #e6f7ff);
+      padding: 20px;
+      text-align: center;
+      transition: 0.4s ease;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .question {
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 500px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0099cc;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0077aa;
+    }
+
+    #result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 30px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Psixoloji Test</h1>
+
+  <div class="question" id="q1">
+    <p>Səni küçədə polis saxlayır. Nə deyirsən?</p>
+    <button onclick="nextQuestion()">Mən cinayətkaram</button>
+    <button onclick="nextQuestion()">Bura mənim küçəmdi</button>
+    <button onclick="nextQuestion()">Salam dayı, su içə bilərəm?</button>
+  </div>
+
+  <div class="question" id="q2" style="display: none;">
+    <p>Bir günə milyoner oldun. İlk işin?</p>
+    <button onclick="nextQuestion()">Məktəbdən çıxıram</button>
+    <button onclick="nextQuestion()">Büst düzəltdirirəm</button>
+    <button onclick="nextQuestion()">Direktora 100 manat atıram</button>
+  </div>
+
+  <div class="question" id="q3" style="display: none;">
+    <p>Səni tv-də göstərirlər. Səbəb?</p>
+    <button onclick="showResult()">Dahi uşaq olmuşam</button>
+    <button onclick="showResult()">Qonşunun toyuğuna müsahibə verirəm</button>
+    <button onclick="showResult()">Səhvən Putinə zəng etmişəm</button>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    let current = 1;
+
+    function nextQuestion() {
+      document.getElementById("q" + current).style.display = "none";
+      current++;
+      document.getElementById("q" + current).style.display = "block";
+    }
+
+    function showResult() {
+      document.getElementById("q3").style.display = "none";
+      document.getElementById("result").innerText = "Qərar verildi: sən psixoloji yardım almalısan.";
+    }
+  </script>
+
+</body>
+</html>
